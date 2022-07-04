@@ -6,9 +6,6 @@ class DoVoice:
 
     """This DoVoice class is for voice related function."""
 
-    def __init__(self) -> None:
-        ...
-
     def take_voice(self) -> str:
         """
         This function returns a string taking input from the user's microphone.
