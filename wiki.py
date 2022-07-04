@@ -20,7 +20,7 @@ class Wiki:
         """
 
         try:
-            return wikipedia.summary(search, sentences=sentences)
+            return wikipedia.summary(search, sentences=sentences, features="lxml")
 
         except wikipedia.exceptions.PageError:
             print("Couldn't find about the given data.")
