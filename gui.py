@@ -65,10 +65,10 @@ class GUI(tk.Tk):
     def _show_text(self):
         self._main_frame = ttk.Frame(self, style="primary.TFrame")
         self.font[1] = 14
-        self.text_area = ScrolledText(
-            self._main_frame, font=self.font, height=20)
+        self.text_area = ScrolledText(self._main_frame, font=self.font,
+                                      height=20, state="disabled")
         self.text_area.pack(side="top", anchor="center",
-                            fill="x", padx=150, pady=(50, 20))
+                            fill="x", padx=150, pady=20)
         self.text_area.configure(font=self.font)
         self.speak_img = ImageTk.PhotoImage(
             Image.open(f"{IMG_PATH}/speak.png").resize((50, 50))
@@ -93,22 +93,27 @@ class GUI(tk.Tk):
 
     def search(self):
         text = self.search_wiki.search_wiki(self.name.get())
-        self.text_area.delete(0.0, self.END)
-        self.text_area.insert(self.INSERT, text)
+        if self.text_area.get("0.0", tk.END):
+            self.text_area.delete("0.0", tk.END)
+        
+        self.text_area.configure(state="normal")
+        self.text_area.insert("0.0", text)
+        self.text_area.configure(state="disabled")
 
     def speak(self):
-        print(self.text_area.get(0.0, self.END))
-        self.voice.speak(self.text_area.get(0.0, self.END))
+        print(self.text_area.get("0.0", tk.END))
+        self.voice.speak(self.text_area.get("0.0", tk.END))
 
     def convert_audio(self):
-        text = self.text_area.get(0.0, self.END)
-        myobj = gTTS(text=text, lang="en", slow=False) 
+        text = self.text_area.get("0.0", tk.END)
+        myobj = gTTS(text=text, lang="en", slow=False)
         myobj.save("./audio.mp3")
 
     def run(self):
         self._header()
         self._show_text()
         self.mainloop()
+
 
 if __name__ == "__main__":
     gui = GUI()

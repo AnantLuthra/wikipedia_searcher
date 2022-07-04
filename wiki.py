@@ -1,4 +1,4 @@
-import wikipedia
+import wikipediaapi
 
 class Wiki:
     """
@@ -6,7 +6,7 @@ class Wiki:
     """
 
     @staticmethod
-    def search_wiki(search:str, sentences:int=10) -> str:
+    def search_wiki(search:str, words:int=5000) -> str:
         """
         This function searches wikipedia through wikipedia library
          It takes two arguments: 
@@ -16,8 +16,9 @@ class Wiki:
         return value = It returns sentences of line as a string.
         """
 
-        try:
-            return wikipedia.summary(search, sentences=sentences, features="lxml")
-
-        except wikipedia.exceptions.PageError:
-            print("Couldn't find about the given data.")
+        wikipedia = wikipediaapi.Wikipedia('en')
+        page_py = wikipedia.page(search)
+        
+        if page_py.exists():
+            return f"{page_py.title}\n{page_py.summary[:words]}"
+        return "Couldn't find about the given data."
