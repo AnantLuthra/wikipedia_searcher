@@ -7,8 +7,11 @@ from tkinter import ttk
 from ttkbootstrap import Style, ScrolledText
 from PIL import ImageTk, Image
 
+__all__ = ["GUI"]
 
-IMG_PATH = f"{os.getcwd()}/assets"
+path = os.getcwd()
+path += "/wikipedia_searcher" if "wikipedia_searcher" not in path else ""
+IMG_PATH = f"{path}/assets"
 
 
 class GUI(tk.Tk):
@@ -91,15 +94,14 @@ class GUI(tk.Tk):
 
     def search(self):
         text = self.search_wiki.search_wiki(self.name.get())
-        if self.text_area.get("0.0", tk.END):
-            self.text_area.delete("0.0", tk.END)
-        
+
+        self.text_area.delete("1.0", "end")
+
         self.text_area.configure(state="normal")
         self.text_area.insert("0.0", text)
         self.text_area.configure(state="disabled")
 
     def speak(self):
-        print(self.text_area.get("0.0", tk.END))
         self.voice.speak(self.text_area.get("0.0", tk.END))
 
     def convert_audio(self):
@@ -114,5 +116,5 @@ class GUI(tk.Tk):
 
 
 if __name__ == "__main__":
-    gui = GUI()
-    gui.run()
+    mygui = GUI()
+    mygui.run()
