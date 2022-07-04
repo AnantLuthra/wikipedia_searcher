@@ -5,11 +5,8 @@ class Wiki:
     This Wiki class have functions for searching wikipedia.
     """
 
-    def __init__(self) -> None:
-        ...
-
     @staticmethod
-    def search_wiki(search:str, sentences:int) -> str:
+    def search_wiki(search:str, sentences:int=10) -> str:
         """
         This function searches wikipedia through wikipedia library
          It takes two arguments: 
