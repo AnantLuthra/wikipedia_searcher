@@ -32,6 +32,7 @@ git clone https://github.com/AnantLuthra/wikipedia_searcher.git
 1. Make sure to install required modules before using below command:
 
 ```$ pip install -r requirements.txt```
+
 And must install `pyaudio` from the provided wheel file in assets folder.
 
 ```$ pip install assets\PyAudio-0.2.11-cp310-cp310-win_amd64.whl```
