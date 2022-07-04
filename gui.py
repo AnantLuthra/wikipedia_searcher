@@ -24,12 +24,10 @@ class GUI(tk.Tk):
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
         self.geometry(f"1000x800+{screen_width//4}+100")
-        self.style = Style(theme="morph")  # superhero-morph
+        self.style = Style(theme="morph")
         self.font = ["Rockwell", 30]
         self.search_wiki = Wiki()
         self.voice = DoVoice()
-        # print(dir(self.style.colors.primary))
-        # self.style.configure("TButton", bg=self.style.colors.primary)
 
     def _header(self):
         self._header_frame = ttk.Frame(self, style="primary.TFrame")
