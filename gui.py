@@ -107,7 +107,6 @@ class GUI(tk.Tk):
 
     def convert_audio(self):
         text = self.text_area.get("0.0", tk.END)
-        print(text)
         myobj = gTTS(text=text, lang="en", slow=False)
         myobj.save(f"{IMG_PATH.replace('/assets/', '')}./audio.mp3")
 
