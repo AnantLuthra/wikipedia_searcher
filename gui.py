@@ -83,7 +83,8 @@ class GUI(tk.Tk):
             Image.open(f"{IMG_PATH}/audio-file.png").resize((50, 50))
         )
         self._convert_audio_btn = ttk.Button(self._main_frame, text="Convert text to Audio file",
-                                             image=self.audio_img, compound="top", style="success.TButton")
+                                             image=self.audio_img, compound="top", style="success.TButton",
+                                             command=self.convert_audio)
         self._convert_audio_btn.pack(side="top", pady=20)
 
         self._main_frame.pack(side="top", fill="both", expand=1)
@@ -106,8 +107,9 @@ class GUI(tk.Tk):
 
     def convert_audio(self):
         text = self.text_area.get("0.0", tk.END)
+        print(text)
         myobj = gTTS(text=text, lang="en", slow=False)
-        myobj.save("./audio.mp3")
+        myobj.save(f"{IMG_PATH.replace('/assets/', '')}./audio.mp3")
 
     def run(self):
         self._header()
