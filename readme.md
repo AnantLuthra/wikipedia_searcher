@@ -5,6 +5,8 @@ This project is a part of [Global Hack Week (GHW)-INIT 2023](https://organize.ml
 - We can also convert the summary into audio file.
 - This GUI is made using tkinter library.
 
+## Demo Video [🔗](https://youtu.be/ltYkbAh_8FU)
+
 ![Preview Img](assets/preview.jpg)
 
 
@@ -27,8 +29,6 @@ git clone https://github.com/AnantLuthra/wikipedia_searcher.git
 - ttkbootstrap==1.8.0
 - Wikipedia-API==0.5.4
 - Pyaudio 0.2.11 (wheel file)
-
-## Demo Video [🔗](https://youtu.be/ltYkbAh_8FU)
 
 ### Setup
 1. Make sure to install required modules before using below command:
