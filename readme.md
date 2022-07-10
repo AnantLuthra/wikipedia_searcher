@@ -28,6 +28,8 @@ git clone https://github.com/AnantLuthra/wikipedia_searcher.git
 - Wikipedia-API==0.5.4
 - Pyaudio 0.2.11 (wheel file)
 
+## Demo Video [🔗](https://youtu.be/ltYkbAh_8FU)
+
 ### Setup
 1. Make sure to install required modules before using below command:
 
